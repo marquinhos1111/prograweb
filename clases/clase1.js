@@ -96,3 +96,43 @@ let numeroEntero =  2
 console.log( numeroEntero = String(numeroEntero) )
 console.log(typeof(numeroEntero))
 
+
+// para ARRAYS usar CONST
+// para VARIABLES usar LET a menos que sean constantes
+
+
+// x=1
+// x++ ---> x = 2
+
+
+
+/*
+string = cadena    let auto = "Bmw"
+
+number   let altura = 18,
+
+booleans     Bmw = true
+Mercedes = false
+
+Object
+const partesAuto = {filtro:"KN", concesionaria:"dietrich", patente:"mercosur"}
+
+ARRAY OBJECT
+const autos = ["Vw", "Bmw", "Mercedes"]
+
+
+//function para definir función
+
+
+//.length ---> Numero de valores en un array
+
+//https://www.w3schools.com/js/js_string_methods.asp
+//TODOS LOS METODOS .ACCION 
+
+
+
+
+
+
+
+*/
