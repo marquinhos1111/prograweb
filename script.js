@@ -1,10 +1,12 @@
 let carrito = []
 
 
+
+
 const autos = {
   "audi-a7": {
     id: "audi-a7",
-    
+   
     marca: "Audi",
     modelo: "A7",
     anio: "2020",
@@ -16,7 +18,7 @@ const autos = {
   },
   "bmw-335i": {
     id: "bmw-335i",
-    
+   
     marca: "BMW",
     modelo: "335i Coupe Sportive",
     anio: "2013",
@@ -28,7 +30,7 @@ const autos = {
   },
   "ds-7-crossback": {
     id: "ds-7-crossback",
-    
+   
     marca: "DS",
     modelo: "7 crossback",
     anio: "2020",
@@ -40,7 +42,7 @@ const autos = {
   },
   "jaguar-f-type-r": {
     id: "jaguar-f-type-r",
-    
+   
     marca: "Jaguar",
     modelo: "F-Type R",
     anio: "2019",
@@ -52,7 +54,7 @@ const autos = {
   },
   "lexus-ls-500": {
     id: "lexus-ls-500",
-    
+   
     marca: "Lexus",
     modelo: "LS 500",
     anio: "2022",
@@ -64,7 +66,7 @@ const autos = {
   },
   "maserati-levante-gransport": {
     id: "maserati-levante-gransport",
-    
+   
     marca: "Maserati",
     modelo: "Levante GranSport",
     anio: "2020",
@@ -76,7 +78,7 @@ const autos = {
   },
   "porsche-911": {
     id: "porsche-911",
-    
+   
     marca: "Porsche",
     modelo: "911",
     anio: "1987",
@@ -88,7 +90,7 @@ const autos = {
   },
   "land-rover-range-rover-vogue": {
     id: "land-rover-range-rover-vogue",
-    
+   
     marca: "Land Rover",
     modelo: "Range Rover Vogue",
     anio: "2010",
@@ -98,26 +100,32 @@ const autos = {
     precio: "102000000",
     color: "Negro"
   }
-};
+}
+
 
 function agregarAuto(idInput){
+
+
     if (!autos[idInput]) {
         return
     }
-    for (let i = 0; i < autos.length; i++){
-        console.log("hola")
-    if (idInput == autos[i].id) {
-        let item = {
-            marca: autos[i].marca,
-            modelo: autos[i].modelo,
-            precio: autos[i].precio,
-            color: autos[i].color,
-            id:idInput
-        }
-        carrito.push(item)
-    }}
+
+
+    const auto = autos[idInput]
+   
+    let item = {
+        marca: auto.marca,
+        modelo: auto.modelo,
+        precio: auto.precio,
+        color: auto.color,
+        id: idInput
+    }
+
+
+    carrito.push(item)
     console.log(carrito)
 }
+
 
 function eliminarAuto(idInput){
     for (let i = 0; i < carrito.length; i++) {
@@ -129,8 +137,14 @@ function eliminarAuto(idInput){
     console.log(carrito)
 }
 
-document.querySelectorAll(".botonAgregar").forEach(boton => {
-    boton.addEventListener("click", () => {
-        agregarAuto(boton.id);
-    });
-});
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll(".botonAgregar").forEach(boton => {
+        boton.addEventListener("click", () => {
+            agregarAuto(boton.id)
+        })
+    })
+})
+
+
+
