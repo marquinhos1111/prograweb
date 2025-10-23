@@ -1,6 +1,7 @@
+// Arrays y diccionarios
+
+
 let carrito = []
-
-
 
 
 const autos = {
@@ -103,6 +104,21 @@ const autos = {
 }
 
 
+const coloresOriginales = {
+  "audi-a7": "Negro",
+  "bmw-335i": "Blanco",
+  "ds-7-crossback": "Blanco",
+  "jaguar-f-type-r": "Negro",
+  "lexus-ls-500": "Plata",
+  "maserati-levante-gransport": "Blanco",
+  "porsche-911": "Naranja",
+  "land-rover-range-rover-vogue": "Negro"
+}
+
+
+// Funciones
+
+
 function agregarAuto(idInput){
 
 
@@ -111,7 +127,7 @@ function agregarAuto(idInput){
     }
 
 
-    const auto = autos[idInput]
+    let auto = autos[idInput]
    
     let item = {
         marca: auto.marca,
@@ -138,6 +154,39 @@ function eliminarAuto(idInput){
 }
 
 
+function cambiarColor(idBoton) {
+    let partes = idBoton.split('-')
+    let marca = partes[0]
+    let color = partes[1]
+   
+    let nuevoColor
+    if (color == "original") {
+        if (marca == "audi") nuevoColor = "Negro"
+        if (marca == "bmw") nuevoColor = "Blanco"
+        if (marca == "ds") nuevoColor = "Blanco"
+        if (marca == "jaguar") nuevoColor = "Negro"
+        if (marca == "lexus") nuevoColor = "Plata"
+        if (marca == "maserati") nuevoColor = "Blanco"
+        if (marca == "porsche") nuevoColor = "Naranja"
+        if (marca == "rover") nuevoColor = "Negro"
+    } else if (color == "blanco") {
+        nuevoColor = "Blanco"
+    } else if (color == "negro") {
+        nuevoColor = "Negro"
+    }
+   
+    let autoEnCarrito = carrito.find(auto => auto.marca.toLowerCase() == marca || auto.id.includes(marca))
+    if (autoEnCarrito) {
+        autoEnCarrito.color = nuevoColor
+        console.log("actualizado")
+    }
+   
+    console.log(carrito)
+}
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll(".botonAgregar").forEach(boton => {
         boton.addEventListener("click", () => {
@@ -145,6 +194,3 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
 })
-
-
-
