@@ -76,3 +76,24 @@ function renderCatalogo(){
 
   refreshQtyBadges();
 }
+
+// === Carrito de compras, ¿agregar datos de domicilio para delivery tipo usa? ===
+function refreshQtyBadges(){
+  const map = Object.fromEntries(getCart().map(i=>[i.id, i.qty]));
+  AUTOS.forEach(a=>{
+    const el = document.getElementById(`qty-${a.id}`);
+    if(el) el.textContent = map[a.id] ? `En carrito: ${map[a.id]}` : '';
+  });
+  $('#cart-count').textContent = getCart().reduce((n,i)=>n+i.qty,0);
+}
+
+function updateCartUI(){
+  const wrap = $('#cart-items');
+  const items = getCart();
+  refreshQtyBadges();
+
+  if(items.length===0){
+    wrap.innerHTML = '<p class="muted">Vacío. Agregá desde el catálogo.</p>';
+    $('#cart-total').textContent = money(0);
+    return;
+  }}
