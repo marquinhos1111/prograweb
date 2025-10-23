@@ -17,3 +17,13 @@ const AUTOS = [
   { id:"a8", marca:"Jaguar", modelo:"F-Type R", anio:2019, km:25000, precio:102000000,
     img:"./fotos/jag.png", transmision:"AT", combustible:"Nafta" }
 ];
+
+
+// === Utilidades carrito ===
+const $ = s => document.querySelector(s);
+const money = n => n.toLocaleString("es-AR",{style:"currency", currency:"ARS", maximumFractionDigits:0});
+const CART_KEY = "rg_cart_v1";
+
+function getCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) ?? [] } catch { return [] } }
+function setCart(v){ localStorage.setItem(CART_KEY, JSON.stringify(v)); updateCartUI(); }
+function cartTotal(){ return getCart().reduce((acc,i)=> acc + (AUTOS.find(a=>a.id===i.id)?.precio||0)*i.qty ,0) }
