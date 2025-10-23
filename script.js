@@ -100,21 +100,37 @@ const autos = {
   }
 };
 
-function agregarAuto(id){
-    if (!autos[id]) {
+function agregarAuto(idInput){
+    if (!autos[idInput]) {
         return
     }
     for (let i = 0; i < autos.length; i++){
-    if (id == autos[i].id) {
+        console.log("hola")
+    if (idInput == autos[i].id) {
         let item = {
-            marca: autos[i].marca, 
+            marca: autos[i].marca,
             modelo: autos[i].modelo,
             precio: autos[i].precio,
             color: autos[i].color,
-            id:id
+            id:idInput
         }
         carrito.push(item)
     }}
     console.log(carrito)
 }
 
+function eliminarAuto(idInput){
+    for (let i = 0; i < carrito.length; i++) {
+        if (idInput == carrito[i].id) {
+            carrito.splice(i,1)
+            break
+        }
+    }
+    console.log(carrito)
+}
+
+document.querySelectorAll(".botonAgregar").forEach(boton => {
+    boton.addEventListener("click", () => {
+        agregarAuto(boton.id);
+    });
+});
