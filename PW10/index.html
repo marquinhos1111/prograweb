@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MK Motors — Lujo sin adorno</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- brutalista? barra fina -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a href="#inicio" class="brand">MK Motors</a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger" aria-label="Abrir menú"><span></span><span></span><span></span></label>
+
+      <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#usado">Usado</a>
+        <button id="open-cart" class="btn btn--ghost">
+          Carrito <span id="cart-count" class="badge">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- HERO -- tipografía grande -->
+    <section class="hero section">
+      <div class="container hero__wrap">
+        <h1>
+        DISCRETO POR FUERA,<br>
+          <span class="stroke">POTENTE POR DENTRO</span>
+        </h1>
+        <p class="hero__lead">
+          Mejorá tu estilo de vida, mejorá tu auto.<br>
+         Usados certificados con garantía de 10 años en nuestro concesionario oficial.
+        </p>
+        
+        <a href="#catalogo" class="btn btn--primary">Ver catálogo</a>
+
+        <figure class="hero__poster">
+          <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1400&auto=format&fit=crop" alt="Showroom blanco y auto negro">
+          
+        </figure>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO, lista, líneas divisorias? -->
+    <section id="catalogo" class="section">
+      <div class="container">
+        <header class="section__head">
+          <h2>Catálogo de lujo</h2>
+          <p class="muted">Pocas unidades. Si te gusta, agregala y coordinamos un TestDrive.</p>
+        </header>
+
+        <div id="catalogo-grid" class="list" aria-live="polite">
+          <!-- Items se inyectan con JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM - cotizá tu usado, minimo 3 fotos? -->
+    <section id="usado" class="section section--muted">
+      <div class="container">
+        <header class="section__head">
+          <h2>Cotizá tu usado</h2>
+          <p class="muted">Completá los datos básicos, </p>
+        </header>
+
+        <form id="usado-form" class="form card" novalidate>
+          <fieldset class="form__grid">
+            <legend class="sr-only">Datos</legend>
+
+            <label class="form__item">
+              <span>Email</span>
+              <input type="email" name="email" placeholder="tu@correo.com" required />
+            </label>
+
+            <label class="form__item">
+              <span>Teléfono</span>
+              <input type="tel" name="telefono" placeholder="11 2345-6789" pattern="^[0-9 +()-]{8,}$" required />
+            </label>
+
+            <label class="form__item">
+              <span>Marca</span>
+              <input type="text" name="marca" placeholder="Ej: Mercedes-Benz" required />
+            </label>
+
+            <label class="form__item">
+              <span>Modelo</span>
+              <input type="text" name="modelo" placeholder="Ej: Clase S" required />
+            </label>
+
+            <label class="form__item">
+              <span>Año</span>
+              <input type="number" name="anio" min="1980" max="2025" required />
+            </label>
+
+            <label class="form__item">
+              <span>Kilometraje</span>
+              <input type="number" name="km" min="0" step="1000" required />
+            </label>
+
+            <label class="form__item form__item--full">
+              <span>Fotos (opcional)</span>
+              <input type="file" name="fotos" id="foto-input" accept="image/*" multiple />
+              <div id="preview" class="preview-grid"></div>
+            </label>
+          </fieldset>
+
+          <div class="form__actions">
+            <button type="submit" class="btn btn--primary">Enviar</button>
+            <button type="reset" class="btn btn--ghost">Limpiar</button>
+          </div>
+
+          <p id="form-msg" class="form__msg" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- CARRITO -->
+  <aside id="cart-drawer" class="drawer" role="dialog" aria-modal="true" aria-label="Carrito" aria-hidden="true">
+    <div class="drawer__panel">
+      <header class="drawer__head">
+        <h3>Carrito</h3>
+        <button id="close-cart" class="icon-btn">Cerrar</button>
+      </header>
+
+      <div id="cart-items" class="drawer__body"></div>
+
+      <footer class="drawer__foot">
+        <div class="drawer__totals">
+          <span>Total</span> <strong id="cart-total">$0</strong>
+        </div>
+        <div class="drawer__actions">
+          <button id="btn-empty" class="btn btn--ghost">Vaciar</button>
+          <button id="btn-checkout" class="btn btn--primary">Finalizar</button>
+        </div>
+      </footer>
+    </div>
+    <div class="drawer__overlay" tabindex="-1"></div>
+  </aside>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> MK MOTORS.</p>
+      <small class="muted">Todos los precios en ARS, ante cualquier duda @mkirsmanhirschvogel@itba.edu.ar</small>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
