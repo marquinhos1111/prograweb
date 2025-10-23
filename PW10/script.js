@@ -27,3 +27,52 @@ const CART_KEY = "rg_cart_v1";
 function getCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) ?? [] } catch { return [] } }
 function setCart(v){ localStorage.setItem(CART_KEY, JSON.stringify(v)); updateCartUI(); }
 function cartTotal(){ return getCart().reduce((acc,i)=> acc + (AUTOS.find(a=>a.id===i.id)?.precio||0)*i.qty ,0) }
+
+
+// === TABLA (Render listado estilo “tabla visual”) ===
+function renderCatalogo(){
+  const grid = $('#catalogo-grid');
+  grid.innerHTML = '';
+  const frag = document.createDocumentFragment();
+
+  AUTOS.forEach(a=>{
+    const article = document.createElement('article');
+    article.className = 'card';
+
+    article.innerHTML = `
+      <img class="card__img" src="${a.img}" alt="${a.marca} ${a.modelo} ${a.anio}">
+      <div class="card__row">
+        <div>
+          <h3 class="card__title">${a.marca} ${a.modelo}</h3>
+          <p class="tagline">${a.anio} • ${a.km.toLocaleString('es-AR')} km</p>
+          <div class="meta">
+            <span>${a.transmision}</span><span>${a.combustible}</span>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div class="price">${money(a.precio)}</div>
+        </div>
+      </div>
+      <div class="card__foot">
+        <button class="btn btn--primary" data-add="${a.id}">Agregar</button>
+        <span class="qty" id="qty-${a.id}"></span>
+      </div>
+    `;
+    frag.appendChild(article);
+  });
+
+  grid.appendChild(frag);
+
+  grid.addEventListener('click', (e)=>{
+    const btn = e.target.closest('[data-add]');
+    if(!btn) return;
+    const id = btn.dataset.add;
+    const cart = getCart();
+    const item = cart.find(i=>i.id===id);
+    if(item) item.qty += 1; else cart.push({id, qty:1});
+    setCart(cart);
+    refreshQtyBadges();
+  });
+
+  refreshQtyBadges();
+}
