@@ -67,6 +67,20 @@ main {
     max-width: 1200px;
     margin: 0 auto;
 }
+/* index presentación*/
+
+#index-sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+#index-sec img {
+    max-width: 100%;
+    height: auto;
+}
 
 /* Cataloog */
 #catalogo h3 {
