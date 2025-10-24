@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MK Motors - Catálogo</title>
+    <title>MK Motors – Catálogo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -23,106 +24,98 @@
             <h3>Catálogo</h3>
             <div>
                 <article>
-                    <img src="fotos/audi.png" alt="Foto del Audi">
-                    <p>Audi</p>
-                    <p>A7</p>
-                    <p>2020</p>
-                    <p>65000Kms</p>
-                    <p>AT</p>
-                    <p>Nafta</p>
-                    <p>98000000</p>
-                    <p>Negro</p>
+                    <div>
+                        <img src="fotos/audi.png" alt="Foto del Audi">
+                        <p class="modelo">A7</p>
+                        <p class="marca">Audi</p>
+                        <p class="info-line">2020 - 65000Kms | AT, Nafta</p>
+                        <p class="precio">$98000000</p>
+                        <p class="color">Negro</p>
+                    </div>
                     <input type="button" value="Agregar al carrito" id="audi-a7" class="botonAgregar">
                 </article>
                 
                 <article>
-                    <img src="fotos/bm.png" alt="Foto del BMW">
-                    <p>BMW</p>
-                    <p>335i Coupe Sportive</p>
-                    <p>2013</p>
-                    <p>11600</p>
-                    <p>AT</p>
-                    <p>Nafta</p>
-                    <p>41000000</p>
-                    <p>Blanco</p>
+                    <div>
+                        <img src="fotos/bm.png" alt="Foto del BMW">
+                        <p class="modelo">335i Coupe Sportive</p>
+                        <p class="marca">BMW</p>
+                        <p class="info-line">2013 - 11600Kms | AT, Nafta</p>
+                        <p class="precio">$41000000</p>
+                        <p class="color">Blanco</p>
+                    </div>
                     <input type="button" value="Agregar al carrito" id="bmw-335i" class="botonAgregar">
                 </article>
-                
+
                 <article>
-                    <img src="fotos/ds.png" alt="Foto del DS"> 
-                    <p>DS</p>
-                    <p>7 crossback</p>
-                    <p>2020</p>
-                    <p>30000</p>
-                    <p>AT</p>
-                    <p>Diesel</p>
-                    <p>98000000</p>
-                    <p>Blanco</p>
+                    <div>
+                        <img src="fotos/ds.png" alt="Foto del DS">
+                        <p class="modelo">7 crossback</p>
+                        <p class="marca">DS</p>
+                        <p class="info-line">2020 - 30000Kms | AT, Diesel</p>
+                        <p class="precio">$98000000</p>
+                        <p class="color">Blanco</p>
+                    </div>
                     <input type="button" value="Agregar al carrito" id="ds-7-crossback" class="botonAgregar">
                 </article>
-                
+
                 <article>
-                    <img src="fotos/jag.png" alt="Foto del Jaguar">
-                    <p>Jaguar</p>
-                    <p>F-Type R</p>
-                    <p>2019</p>
-                    <p>25000</p>
-                    <p>AT</p>
-                    <p>Nafta</p>
-                    <p>102000000</p>
-                    <p>Negro</p>
+                    <div>
+                        <img src="fotos/jag.png" alt="Foto del Jaguar">
+                        <p class="modelo">F-Type R</p>
+                        <p class="marca">Jaguar</p>
+                        <p class="info-line">2019 - 25000Kms | AT, Nafta</p>
+                        <p class="precio">$102000000</p>
+                        <p class="color">Negro</p>
+                    </div>
                     <input type="button" value="Agregar al carrito" id="jaguar-f-type-r" class="botonAgregar">
                 </article>
-                
+
                 <article>
-                    <img src="fotos/lexus.png" alt="Foto del Lexus">
-                    <p>Lexus</p>
-                    <p>LS 500</p>
-                    <p>2022</p>
-                    <p>12000</p>
-                    <p>AT</p>
-                    <p>Nafta</p>
-                    <p>109000000</p>
-                    <p>Plata</p>
+                    <div>
+                        <img src="fotos/lexus.png" alt="Foto del Lexus">
+                        <p class="modelo">LS 500</p>
+                        <p class="marca">Lexus</p>
+                        <p class="info-line">2022 - 12000Kms | AT, Nafta</p>
+                        <p class="precio">$109000000</p>
+                        <p class="color">Plata</p>
+                    </div>
                     <input type="button" value="Agregar al carrito" id="lexus-ls-500" class="botonAgregar">
                 </article>
-                
+
                 <article>
-                    <img src="fotos/maserat.png" alt="Foto del Maserati">
-                    <p>Maserati</p>
-                    <p>Levante GranSport</p>
-                    <p>2020</p>
-                    <p>28000</p>
-                    <p>Manual</p>
-                    <p>Nafta</p>
-                    <p>99000000</p>
-                    <p>Blanco</p>
+                    <div>
+                        <img src="fotos/maserat.png" alt="Foto del Maserati">
+                        <p class="modelo">Levante GranSport</p>
+                        <p class="marca">Maserati</p>
+                        <p class="info-line">2020 - 28000Kms | Manual, Nafta</p>
+                        <p class="precio">$99000000</p>
+                        <p class="color">Blanco</p>
+                    </div>
                     <input type="button" value="Agregar al carrito" id="maserati-levante-gransport" class="botonAgregar">
                 </article>
-                
+
                 <article>
-                    <img src="fotos/porsche.png" alt="Foto del Porsche">
-                    <p>Porsche</p>
-                    <p>911</p>
-                    <p>1987</p>
-                    <p>22000</p>
-                    <p>Manual</p>
-                    <p>Nafta</p>
-                    <p>145000000</p>
-                    <p>Naranja</p>
+                    <div>
+                        <img src="fotos/porsche.png" alt="Foto del Porsche">
+                        <p class="modelo">911</p>
+                        <p class="marca">Porsche</p>
+                        <p class="info-line">1987 - 22000Kms | Manual, Nafta</p>
+                        <p class="precio">$145000000</p>
+                        <p class="color">Naranja</p>
+                    </div>
                     <input type="button" value="Agregar al carrito" id="porsche-911" class="botonAgregar">
                 </article>
-                
+
                 <article>
-                    <img src="fotos/rangerover.png" alt="Foto del Range Rover">
-                    <p>Land Rover</p>
-                    <p>Range Rover Vogue</p>
-                    <p>2010</p>
-                    <p>5560</p>
-                    <p>Manual</p>
-                    <p>Nafta</p>
-                    <p>102000000</p>
-                    <p>Negro</p>
+                    <div>
+                        <img src="fotos/rangerover.png" alt="Foto del Range Rover">
+                        <p class="modelo">Range Rover Vogue</p>
+                        <p class="marca">Land Rover</p>
+                        <p class="info-line">2010 - 5560Kms | Manual, Nafta</p>
+                        <p class="precio">$102000000</p>
+                        <p class="color">Negro</p>
+                    </div>
                     <input type="button" value="Agregar al carrito" id="land-rover-range-rover-vogue" class="botonAgregar">
                 </article>
             </div>
@@ -142,13 +135,16 @@
 
         <section id="usado">
             <h3>Cotizá tu auto</h3>
-            <input type="text" placeholder="Marca">
-            <input type="text" placeholder="Modelo">
-            <input type="number" placeholder="Año">
-            <input type="number" placeholder="KMs">
-            <input type="file" value="Imágenes">
-            <input type="tel" placeholder="Número">
-        </section>
+            <form id="cotizacion-form">
+                <input type="text" placeholder="Marca" required>
+                <input type="text" placeholder="Modelo" required>
+                <input type="number" placeholder="Año" required>
+                <input type="number" placeholder="KMs" required>
+                <input type="file" accept="image/*" multiple>
+                <input type="tel" placeholder="Número" required>
+                <button type="submit">Enviar cotización</button>
+            </form>
+    </section>
     </main>
     <footer>
         <div>
