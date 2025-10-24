@@ -71,15 +71,24 @@ main {
 
 #index-sec {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 1.5rem;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
     box-sizing: border-box;
 }
 
-#index-sec img {
+#index-sec > div {
+    flex: 1 1 55%;
+}
+
+#index-sec > img {
+    flex: 0 0 40%;
+    width: 40%;
     max-width: 100%;
     height: auto;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 /* Cataloog */
@@ -349,6 +358,32 @@ footer {
     #items-carrito li {
         flex-direction: column;
         text-align: center;
+    }
+
+    /* Ajustes generales para pantallas pequeñas */
+    main {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    #index-sec {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    #index-sec > div {
+        order: 1;
+        width: 100%;
+    }
+
+    #index-sec > img {
+        order: 2;
+        width: 100%;
+        margin-top: 1rem;
     }
 }
 
