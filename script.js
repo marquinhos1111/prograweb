@@ -203,6 +203,11 @@ function cambiarColor(idBoton) {
     obtenerAutos()
 }
 
+function vaciarCarrito() {
+    carrito = []
+    obtenerAutos()
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll(".botonAgregar").forEach(boton => {
         boton.addEventListener("click", () => {
@@ -210,9 +215,14 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
 
-document.querySelectorAll(".botonColor").forEach(boton => {
-    boton.addEventListener("click", () => {
+    document.querySelectorAll(".botonColor").forEach(boton => {
+        boton.addEventListener("click", () => {
             cambiarColor(boton.id)
         })
     })
+
+    let vaciarBtn = document.getElementById('vaciar-carrito')
+    if (vaciarBtn) {
+        vaciarBtn.addEventListener('click', vaciarCarrito)
+    }
 })
