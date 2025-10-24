@@ -105,6 +105,8 @@ const autos = {
 
 function agregarAuto(idInput){
 
+    if (carrito.find(i => i.id === idInput)) return
+
     if (!autos[idInput]) {
         return
     }
@@ -120,6 +122,10 @@ function agregarAuto(idInput){
     }
 
     carrito.push(item)
+
+    let btnAgregar = document.getElementById(idInput)
+    if (btnAgregar) btnAgregar.disabled = true
+
     obtenerAutos()
 }
 
@@ -173,6 +179,10 @@ function eliminarAuto(idInput){
             break
         }
     }
+
+    let btnAgregar = document.getElementById(idInput)
+    if (btnAgregar) btnAgregar.disabled = false
+
     obtenerAutos()
 }
 
@@ -205,7 +215,27 @@ function cambiarColor(idBoton) {
 
 function vaciarCarrito() {
     carrito = []
+    
+    document.querySelectorAll('.botonAgregar').forEach(b => b.disabled = false)
     obtenerAutos()
+}
+
+function finalizarCompra() {
+    vaciarCarrito()
+
+    let carritoFooter = document.getElementById('carrito-footer')
+
+    let alerta = document.createElement('div')
+    alerta.className = 'alert alert-success mt-3'
+    alerta.role = 'alert'
+    alerta.id = 'alerta-compra'
+    alerta.textContent = 'Tu compra fue exitosa!'
+
+    carritoFooter.appendChild(alerta)
+
+    setTimeout(() => { // Que la alerta desaparezca
+        alerta.remove()
+    }, 4000)
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -225,4 +255,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (vaciarBtn) {
         vaciarBtn.addEventListener('click', vaciarCarrito)
     }
+
+    let finalizarBtn = document.getElementById('finalizar-compra')
+    if (finalizarBtn) {
+        finalizarBtn.addEventListener('click', finalizarCompra)
+    }
+
 })
