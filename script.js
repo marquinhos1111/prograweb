@@ -145,30 +145,47 @@ function obtenerAutos() {
         btnEliminar.textContent = 'X'
         btnEliminar.addEventListener('click', () => eliminarAuto(item.id))
 
-        // Los que antes estaban en el html los paso para aca
-        let btnOriginal = document.createElement('button') // creo que el problema del button era con codepen
-        btnOriginal.textContent = 'Original' // si tengo tiempo voy a cambiar para que los que el original sea uno de los dos colores, no tenga 3 botones
+        let colorOriginal = (autos[item.id] && autos[item.id].color) ? autos[item.id].color.toLowerCase() : ''
+
+        let btnOriginal = document.createElement('button')
+        btnOriginal.textContent = 'Original'
         btnOriginal.id = item.id + '-original'
         btnOriginal.addEventListener('click', () => cambiarColor(btnOriginal.id))
 
-        let btnBlanco = document.createElement('button')
-        btnBlanco.textContent = 'Blanco'
-        btnBlanco.id = item.id + '-blanco'
-        btnBlanco.addEventListener('click', () => cambiarColor(btnBlanco.id))
-
-        let btnNegro = document.createElement('button')
-        btnNegro.textContent = 'Negro'
-        btnNegro.id = item.id + '-negro'
-        btnNegro.addEventListener('click', () => cambiarColor(btnNegro.id))
-
         li.appendChild(btnEliminar)
         li.appendChild(btnOriginal)
-        li.appendChild(btnBlanco)
-        li.appendChild(btnNegro)
-        lista.appendChild(li)
 
-        total += Number(item.precio)
+        if (colorOriginal === 'negro') {
+            let btnBlanco = document.createElement('button')
+            btnBlanco.textContent = 'Blanco'
+            btnBlanco.id = item.id + '-blanco'
+            btnBlanco.addEventListener('click', () => cambiarColor(btnBlanco.id))
+            li.appendChild(btnBlanco)
+        } else if (colorOriginal === 'blanco') {
+            let btnNegro = document.createElement('button')
+            btnNegro.textContent = 'Negro'
+            btnNegro.id = item.id + '-negro'
+            btnNegro.addEventListener('click', () => cambiarColor(btnNegro.id))
+            li.appendChild(btnNegro)
+        } else {
+            let btnBlanco = document.createElement('button')
+            btnBlanco.textContent = 'Blanco'
+            btnBlanco.id = item.id + '-blanco'
+            btnBlanco.addEventListener('click', () => cambiarColor(btnBlanco.id))
+
+            let btnNegro = document.createElement('button')
+            btnNegro.textContent = 'Negro'
+            btnNegro.id = item.id + '-negro'
+            btnNegro.addEventListener('click', () => cambiarColor(btnNegro.id))
+
+            li.appendChild(btnBlanco)
+            li.appendChild(btnNegro)
+        }
+
+        lista.appendChild(li)
+        total += Number(item.precio) || 0
     })
+
     totalSpan.textContent = total
 }
 
@@ -214,28 +231,28 @@ function cambiarColor(idBoton) {
 }
 
 function vaciarCarrito() {
-    carrito = []
-    
-    document.querySelectorAll('.botonAgregar').forEach(b => b.disabled = false)
-    obtenerAutos()
+  carrito = []
+  
+  document.querySelectorAll('.botonAgregar').forEach(b => b.disabled = false)
+  obtenerAutos()
 }
 
 function finalizarCompra() {
-    vaciarCarrito()
+  vaciarCarrito()
 
-    let carritoFooter = document.getElementById('carrito-footer')
+  let carritoFooter = document.getElementById('carrito-footer')
 
-    let alerta = document.createElement('div')
-    alerta.className = 'alert alert-success mt-3'
-    alerta.role = 'alert'
-    alerta.id = 'alerta-compra'
-    alerta.textContent = 'Tu compra fue exitosa!'
+  let alerta = document.createElement('div')
+  alerta.className = 'alert alert-success mt-3'
+  alerta.role = 'alert'
+  alerta.id = 'alerta-compra'
+  alerta.textContent = 'Tu compra fue exitosa!'
 
-    carritoFooter.appendChild(alerta)
+  carritoFooter.appendChild(alerta)
 
-    setTimeout(() => { // Que la alerta desaparezca
-        alerta.remove()
-    }, 4000)
+  setTimeout(() => { // Que la alerta desaparezca
+    alerta.remove()
+  }, 4000)
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -258,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let finalizarBtn = document.getElementById('finalizar-compra')
     if (finalizarBtn) {
-        finalizarBtn.addEventListener('click', finalizarCompra)
+      finalizarBtn.addEventListener('click', finalizarCompra)
     }
 
 })
